@@ -1,0 +1,5 @@
+https://nodejs.dev/the-nodejs-fs-module
+https://nodejs.dev/the-nodejs-os-module
+https://nodejs.dev/the-package-json-guide
+https://nodejs.dev/the-package-json-guide
+https://nodejs.dev/the-package-lock-json-file
