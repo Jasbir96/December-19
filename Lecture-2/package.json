@@ -1,0 +1,15 @@
+{
+  "name": "lecture-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myls.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "myls": "myls.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
