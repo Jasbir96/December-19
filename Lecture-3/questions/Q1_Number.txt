@@ -1,0 +1,16 @@
+Write a function number which accepts three input two numbers x ,y and a function (fn). Number function applies  function (fn) to x and y and returns the result
+definition : number(x,y,fn);
+Input : 3,4,sum
+Output : 7
+number(3,4,sum); 7
+number(3,4,mult); 12
+number(3,4,diff);-1
+
+Q2 Write  transformer function that accepts doubleIt function and multiply every element by 2 without mutating actual array 
+  arr[1,2,3,4,5,6]
+narr[2,4,6,8,10,12]
+
+Q4 Write includer function that accepts isOdd  function and filter even values from actual array without mutating actual array
+arr[5,8,14,17,23,6,8];
+narr[5,17,23];
+ 
