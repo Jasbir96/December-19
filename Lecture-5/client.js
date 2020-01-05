@@ -1,6 +1,3 @@
-// custom module
-// console.log("Hello world");
-var libfn = require("./export");
-libfn.greeter();
-libfn.sayHi();
-// libfn();
+const lib = require("./export");
+console.log(lib.greeter);
+console.log(lib.sayHi);
