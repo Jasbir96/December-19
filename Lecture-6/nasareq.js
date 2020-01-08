@@ -2,6 +2,7 @@ const https = require("https");
 let wholeData = "";
 const fs = require("fs");
 
+const imgStream = fs.createWriteStream("img.png");
 const request = https.get(
   "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
 
@@ -12,18 +13,14 @@ const request = https.get(
     res.on("end", function() {
       const json = JSON.parse(wholeData);
       const url = json.url;
-      let img = "";
+      // let img = "";
       const anotherRequest = https.get(url, function(res) {
-        res.on("data", function(imgData) {
-          img = img + imgData;
-        });
-
-        res.on("end", function() {
-          fs.writeFileSync("img.png", img);
-        });
+      //  readable=> writableStream
+        res.pipe(imgStream);
       });
       anotherRequest.end();
     });
   }
 );
+
 request.end();
