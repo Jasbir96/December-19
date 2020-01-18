@@ -1,0 +1,8 @@
+Que Do all three operation with array of input?
+
+//Promise.all
+var arr = [
+  "http://google/logo.png",
+  "http://google/banner.png",
+  "http://google/promo.png"
+];

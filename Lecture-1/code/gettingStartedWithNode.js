@@ -7,6 +7,7 @@ var fs = require("fs");
 console.log(process.argv);
 const dir = process.argv[2];
 // File system
+
 if (dir == undefined) {
   console.log("Kindly Enter Directory Name");
   return;
@@ -17,4 +18,5 @@ if (fs.existsSync(dir) == true) {
   return;
 }
 fs.mkdirSync(dir);
+
 console.log("Directory " + dir + " has been created");
