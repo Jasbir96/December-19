@@ -18,7 +18,7 @@ function getFile(file) {
 //print as soon as you receive them
 // print them in seqential order
 // call=> promise
-
+// consume 
 var p1 = getFile("file1");
 var p2 = getFile("file2");
 var p3 = getFile("file3");
@@ -26,7 +26,7 @@ var p3 = getFile("file3");
 // wait 
 p1.then(function(data) {
   console.log("File 1  " + data);
-  console.log("Line number 29");
+  // console.log("Line number 29");
   return p2
 }).then(function(data) {
   console.log("File 2" + data);

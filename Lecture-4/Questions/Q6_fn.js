@@ -19,6 +19,7 @@ function doE() {
 function doF() {
   console.log("Called doF");
 }
+
 doA(function() {
   doB();
   doC(function() {

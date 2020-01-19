@@ -14,7 +14,6 @@ eventMaker.on("submit",function fn2(email){
     console.log("Welcom User")
   }
 })
-
 eventMaker.on("click", function fn3() {
   console.log("i was called");
   eventMaker.emit("submit", "abc@gmail.com", "2345678");

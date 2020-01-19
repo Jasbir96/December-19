@@ -8,7 +8,6 @@ var reader = readline.createInterface({
   prompt: ">"
 });
 console.clear();
-
 print(chalk.blue(figlet.textSync("Tasker")));
 print(chalk.cyan("Type a command(Type help to see list of all commands)"));
 reader.prompt();
@@ -40,7 +39,6 @@ reader.on("line", function(data) {
   }
   reader.prompt();
 });
-
 reader.on("close", function() {
   console.log("Thank You for using our cli");
 });
