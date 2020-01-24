@@ -2,6 +2,7 @@ var print = console.log;
 var chalk = require("chalk");
 var figlet = require("figlet");
 var readline = require("readline");
+var fs=require("fs");
 var reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -22,15 +23,16 @@ reader.on("line", function(data) {
           1. add task_name
           2.ls (to list all commands)
           3.delete id(enter task id to delete it)
-    
     `);
   } else if (cmd == "ls") {
+    print(chalk.magenta("Tasks"))
     for (var i = 0; i < tasks.length; i++) {
       print(`${i + 1}. ${tasks[i]}`);
       // print(i + 1 + "." + tasks[i]);
     }
   } else if (cmd == "add" && sArr.length > 0) {
     tasks.push(sArr.join(" "));
+    print(chalk.green(`${sArr.join(" ")} added `));
   } else if (cmd == "delete" && sArr.length > 0) {
     var id = Number.parseInt(sArr[0]);
     tasks.splice(id - 1, 1);
