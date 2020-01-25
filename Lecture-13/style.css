@@ -1,0 +1,43 @@
+/* default styling  */
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+nav {
+  position: relative;
+  left: -3rem;
+  top: 1rem;
+}
+/* universal selector */
+/* *{
+/* border: 2px red solid; */
+/* } */
+article {
+  display: flex;
+}
+.container {
+  margin-right: 2rem;
+  text-align: center;
+}
+footer {
+  background-color: black;
+  color: white;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  width: 22rem;
+}
+ul {
+  display: flex;
+  justify-content: space-between;
+}
