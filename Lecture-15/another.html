@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .task{
+        .task {
             list-style: none;
         }
-    p{
-        display: inline;
-    }
-    img{
-        height: 2rem;
-        width:2rem;
-    }
+
+        p {
+            display: inline;
+        }
+
+        img {
+            height: 2rem;
+            width: 2rem;
+        }
+        .task{
+            display: flex;
+            justify-content: space-between;
+        }
+        .hide{
+            display:none;
+        }
     </style>
 </head>
+
 <body>
     <div class="container mt-4">
-        <form >
-<input type="text">
-<button class="btn btn-primary" type="submit">Add task</button>
-</form>
-<ul>
-    <li class="task">
-        <p class="mr-4">
-            one task
-        </p class="">
-        <img src="cross.png" alt="">
-    </li>
-</ul>
-</div>
-<script src="todo.js"></script>
+        <!-- form => input your task -->
+        <form>
+            <input type="text">
+            <button class="btn btn-primary" type="submit">Add task</button>
+        </form>
+
+        <!-- task List -->
+        <ul>
+         
+        </ul>
+    </div>
+    <script src="todo.js"></script>
 </body>
+
 </html>
