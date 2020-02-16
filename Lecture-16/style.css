@@ -1,0 +1,62 @@
+*{
+    margin:0;
+    padding: 0;;
+}
+.tool-img{
+    height:4rem;
+    width:4rem;
+    margin-right:1rem;
+}
+.toolBar{
+    display: flex;
+    justify-content: center;
+    background-color: brown;
+}
+
+.tool-options{
+    height:8rem;
+width:12rem;
+background-color: darkblue;
+}
+.pencil-size{
+    height: 50%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pencil-color{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+input{
+    width:90%;
+}
+
+.colors{
+    width: 20%;
+    height: 60%;
+    margin-right:.25rem;
+    border-radius: 50%;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.tool{
+    position: relative;
+}
+.tool-options{
+    position: absolute;
+    top:3.75rem;
+    right: -2.75rem;
+
+}
