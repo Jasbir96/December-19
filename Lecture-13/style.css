@@ -1,14 +1,24 @@
 /* default styling  */
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 li {
   list-style: none;
+  font-size: 1.5rem;
 }
 a {
   text-decoration: none;
 }
 
+/* combinators */
+header h1 {
+  font-weight: 400;
+}
 header {
   display: flex;
   justify-content: space-between;
+  margin: 0 3rem;
 }
 nav {
   position: relative;
@@ -19,12 +29,16 @@ nav {
 /* *{
 /* border: 2px red solid; */
 /* } */
+
 article {
   display: flex;
+  margin: 1.5rem;
 }
+
 .container {
   margin-right: 2rem;
   text-align: center;
+  padding: 1rem;
 }
 footer {
   background-color: black;
@@ -40,4 +54,28 @@ nav {
 ul {
   display: flex;
   justify-content: space-between;
+}
+p {
+  font-size: 1.5rem;
+}
+
+/* pseudo classes */
+a:link,
+a:visited {
+  color: black;
+}
+a:hover,
+a:active {
+  color: red;
+}
+h2 {
+  font-weight: 500;
+}
+footer {
+  height: 4rem;
+  font-size: 1.5rem;
+}
+.showcase__img {
+  width: 95vw;
+  margin: 1rem;
 }
