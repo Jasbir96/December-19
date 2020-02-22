@@ -15,9 +15,14 @@
 
 .tool-options{
     height:8rem;
-width:12rem;
-background-color: darkblue;
+    width:12rem;
+    background-color: darkblue;
+    display: none;
 }
+.show{
+    display: block;
+}
+
 .pencil-size{
     height: 50%;
     background-color: green;
@@ -60,3 +65,22 @@ input{
     right: -2.75rem;
 
 }
+/* sticky css starts here */
+ .sticky-pad{
+     height:10rem;
+     width:10rem;
+     position: absolute;
+     top:30vh;
+     left:30vw;
+     background-color: yellow;
+ }
+ .navbar{
+     height:20%;
+     width:100%;
+     background-color: green;
+ }
+ .writingPad{
+     height: 80%;
+     width:100%
+ }
+ 

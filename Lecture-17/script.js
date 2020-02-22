@@ -16,17 +16,42 @@ const input = document.querySelector("#pen-size");
 ctx.lineWidth = input.value;
 input.addEventListener("change", function (e) {
     ctx.lineWidth = input.value;
+
 })
 // ctx.lineWidth=2;
+let Activetool = "pencil";
+const pencilOptions = document.querySelector(".pencil");
+const eraserOptions = document.querySelector(".eraser");
 
+
+function handleToolChange(tool) {
+    if (tool == "pencil") {
+        if (Activetool == "pencil") {
+            // show options
+            pencilOptions.classList.add("show");
+        } else {
+            Activetool = "pencil";
+            // remove other options
+            eraserOptions.classList.remove("show");
+            ctx.strokeStyle = "blue";
+        }
+    } else if (tool == "eraser") {
+        if (Activetool == "eraser") {
+            // show options
+            eraserOptions.classList.add("show")
+        } else {
+            Activetool = "eraser";
+            pencilOptions.classList.remove("show");
+            ctx.strokeStyle = "white";
+            // remove other options
+            // set yourself active
+            // change style
+        }
+    }
+    else if (tool == "sticky") {
+        createSticky();
+    }
+}
 function handleColorChange(color) {
     ctx.strokeStyle = color;
-}
-function handletoolChange(tool) {
-    if (tool == "pencil") {
-        ctx.strokeStyle = "blue";
-    } else {
-        ctx.strokeStyle = "white";
-
-    }
 }
