@@ -10,15 +10,23 @@ const ctx = board.getContext("2d");
 // ctx.strokeStyle = "green";
 // ctx.lineWidth = 10;
 // ctx.strokeRect(0, 0, window.innerWidth / 2, window.innerHeight / 2);
-ctx.strokeStyle="blue";
-ctx.imageSmoothingEnabled=true
+ctx.strokeStyle = "blue";
+ctx.imageSmoothingEnabled = true
+const input = document.querySelector("#pen-size");
+ctx.lineWidth = input.value;
+input.addEventListener("change", function (e) {
+    ctx.lineWidth = input.value;
+})
 // ctx.lineWidth=2;
 
-// // 0,0
-// ctx.beginPath();
-// ctx.moveTo(50,150);
-// ctx.lineTo(100,150);
-// ctx.moveTo(160,200);
-// ctx.lineTo(200,200);
-// ctx.closePath();
-// ctx.stroke();
+function handleColorChange(color) {
+    ctx.strokeStyle = color;
+}
+function handletoolChange(tool) {
+    if (tool == "pencil") {
+        ctx.strokeStyle = "blue";
+    } else {
+        ctx.strokeStyle = "white";
+
+    }
+}

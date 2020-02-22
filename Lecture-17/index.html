@@ -13,22 +13,23 @@
 
     <div class="toolBar">
         <div class="tool">
-            <img src="NewIcons/Black_Pencil.svg" class="tool-img" alt="">
+            <img src="NewIcons/Black_Pencil.svg" class="tool-img" alt="" onclick="handletoolChange('pencil')">
             <div class="tool-options">
-                <div class="pencil-size">
-                    <input type="range" min>
+                <div class="pencil-size" >
+ <input type="range"  id="pen-size" min="5" max=30>
                 </div>
                 <div class="pencil-color">
-                    <div class="colors red"></div>
-                    <div class="colors green"></div>
-                    <div class="colors blue"></div>
+                    <div class="colors red" onclick="handleColorChange('red')"></div>
+                    <div class="colors green" onclick="handleColorChange('green')"></div>
+                    <div class="colors blue" onclick="handleColorChange('blue')"></div>
                 </div>
             </div>
         </div>
         <div class="tool">
-            <img src="/NewIcons/Eraser.svg" alt="" class="tool-img">
+            <img src="NewIcons/Eraser.svg" alt="" class="tool-img" onclick="handletoolChange('eraser')">
         </div>
     </div>
+
     <canvas class="board">
     </canvas>
     <script src="script.js"></script>
