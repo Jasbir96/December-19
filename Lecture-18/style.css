@@ -47,13 +47,13 @@ input{
     margin-right:.25rem;
     border-radius: 50%;
 }
-.red{
+.red,.close{
     background-color: red;
 }
 .green{
     background-color: green;
 }
-.blue{
+.blue,.minmize{
     background-color: blue;
 }
 .tool{
@@ -72,15 +72,29 @@ input{
      position: absolute;
      top:30vh;
      left:30vw;
-     background-color: yellow;
+     
  }
  .navbar{
      height:20%;
      width:100%;
      background-color: green;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+
  }
  .writingPad{
      height: 80%;
-     width:100%
+     width:100%;
+     background-color: chocolate;
+     
+    }
+    .hidden{
+        display: none;
+    }
+    .text-area{
+        width:100%;
+        height: 100%;
+        background-color: chocolate;
  }
  
