@@ -2,7 +2,6 @@ let isMouseDown = false;
 
 let undoStack = [];
 board.addEventListener("mousedown", function (e) {
-
     ctx.beginPath();
     let top = getLocation();
     ctx.moveTo(e.clientX, e.clientY - top);
@@ -41,7 +40,6 @@ board.addEventListener("mousemove", function (e) {
         }
         undoStack.push(point);
     }
-
 })
 
 
