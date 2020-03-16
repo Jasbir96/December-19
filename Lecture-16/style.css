@@ -14,6 +14,7 @@
 }
 
 .tool-options{
+    display: none;
     height:8rem;
 width:12rem;
 background-color: darkblue;
@@ -60,3 +61,60 @@ input{
     right: -2.75rem;
 
 }
+
+.show{
+    display: block;
+}
+
+
+
+
+
+
+.stickyPad{
+    /* create seperate page */
+    position: absolute;
+    left: 17rem;
+    top: 14rem;
+    height: 17rem;
+    width: 15rem;
+    /* background-color: greenyellow; */
+   
+}
+
+.navBar{
+    height: 20%;
+    width:100%;
+    background-color: rgb(178, 111, 34);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.minimize,.close{
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    margin-right:0.7rem;
+}
+.minimize{
+
+    background-color: rgb(48, 211, 48);
+}
+.close{
+    background-color:firebrick;
+}
+
+
+.writingPad{
+    height: 80%;
+    width:100%;
+    background-color: goldenrod;
+}
+.textArea{
+    width:99%;
+    height:99%;
+    
+    background-color: inherit;
+}
+

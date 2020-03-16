@@ -9,6 +9,8 @@ function createSticky() {
     const close = document.createElement("div");
     const minmize = document.createElement("div");
     const textArea = document.createElement("textarea");
+    const textArea = document.cre
+    hlghjfgateElement("textarea");
 
     StickyPad.setAttribute("class", "sticky-pad")
     navbar.setAttribute("class", "navbar")

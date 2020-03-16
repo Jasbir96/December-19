@@ -12,27 +12,62 @@
     <!-- canvas Tag -->
 
     <div class="toolBar">
-        <div class="tool">
+        <div class="tool" onclick="handleToolChange('pencil')">
             <img src="NewIcons/Black_Pencil.svg" class="tool-img" alt="">
-            <div class="tool-options">
+
+            <div class="tool-options pencil-options">
+
                 <div class="pencil-size">
-                    <input type="range" min>
+                    <input type="range" min="7" max="50" value="5" id="pencil-slider">
                 </div>
+
                 <div class="pencil-color">
-                    <div class="colors red"></div>
-                    <div class="colors green"></div>
-                    <div class="colors blue"></div>
+                    <div class="colors red" onclick="handleColorchange('red')"></div>
+                    <div class="colors green" onclick="handleColorchange('green')"></div>
+                    <div class="colors blue" onclick="handleColorchange('blue')"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tool" onclick="handleToolChange('eraser')">
+            <img src="/NewIcons/Eraser.svg" alt="" class="tool-img">
+            <div class="tool-options  eraser-options">
+
+                <div class="eraser-size">
+                    <input type="range" min="7" max="50" value="5" onchange="handleSizeChange(this.size)">
                 </div>
             </div>
         </div>
         <div class="tool">
-            <img src="/NewIcons/Eraser.svg" alt="" class="tool-img">
+            <img src="NewIcons/StickyNote.svg" 
+            alt="" class="tool-img sticky" 
+            onclick="handleToolChange('sticky')">
         </div>
+        <div class="tool"><img src="NewIcons/Undo.svg" alt="" class="tool-img undo"></div>
+        <div class="tool"><img src="NewIcons/Redo.svg" alt="" class="tool-img"></div>
     </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <canvas class="board">
     </canvas>
+
     <script src="script.js"></script>
     <script src="canvas.js"></script>
+    <script src="tool.js"></script>
+<script src="sticky.js"></script>
 </body>
 
 </html>

@@ -11,8 +11,13 @@ const ctx = board.getContext("2d");
 // ctx.lineWidth = 10;
 // ctx.strokeRect(0, 0, window.innerWidth / 2, window.innerHeight / 2);
 ctx.strokeStyle="blue";
-ctx.imageSmoothingEnabled=true
+ctx.imageSmoothingEnabled=true;
+// ctx.lineWidth=60;
 // ctx.lineWidth=2;
+
+
+
+
 
 // // 0,0
 // ctx.beginPath();
