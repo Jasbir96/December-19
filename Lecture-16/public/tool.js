@@ -11,6 +11,7 @@ function handleSizeChange(size){
 let activeTool = "pencil";
 function handleColorchange(color) {
     ctx.strokeStyle = color;
+    socket.emit("color",color);
 }
 
 

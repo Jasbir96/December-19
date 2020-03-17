@@ -1,6 +1,7 @@
 let isMouseDown = false;
 
 let undoStack = [];
+
 board.addEventListener("mousedown", function (e) {
     ctx.beginPath();
     let top = getLocation();
@@ -14,7 +15,11 @@ board.addEventListener("mousedown", function (e) {
         color: ctx.strokeStyle,
         width: ctx.lineWidth
     }
+
     undoStack.push(point);
+
+    socket.emit("mousedown", point);
+    // event emit 
 })
 // mmousedown x,y beginPath,moveTo(x,y),color,size
 // mouseMove=> x1,y1, lineTo,stroke
@@ -39,6 +44,7 @@ board.addEventListener("mousemove", function (e) {
             width: ctx.lineWidth
         }
         undoStack.push(point);
+        socket.emit("mousemove", point);
     }
 })
 
@@ -56,18 +62,18 @@ const undo = document.querySelector(".undo");
 let iterval = null;
 
 undo.addEventListener("mousedown", function () {
-   interval= setInterval(function () {
+    interval = setInterval(function () {
         ctx.clearRect(0, 0, board.width, board.height);
 
-        if(undoStack.length>0){
-    undoStack.pop();
-    redraw();
-}
-        
+        if (undoStack.length > 0) {
+            undoStack.pop();
+            redraw();
+        }
+
     }, 50);
 })
 
-undo.addEventListener("mouseup",function(){
+undo.addEventListener("mouseup", function () {
     clearInterval(interval);
 })
 

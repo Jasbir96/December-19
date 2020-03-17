@@ -68,7 +68,12 @@ function createSticky() {
             initialY = finalY;
         }
     })
+    // sticky => mouseup
     navBar.addEventListener("mouseup", function () {
+        isStickyDown = false;
+    })
+    // pointer => moved off sticky
+    navBar.addEventListener("mouseleave", function () {
         isStickyDown = false;
     })
 }

@@ -52,6 +52,7 @@ function handleToolChange(tool) {
         createSticky();
     }
 }
+
 function handleColorChange(color) {
     ctx.strokeStyle = color;
 }
