@@ -28,7 +28,9 @@ io.on('connection', function (socket) {
 //     res.sendFile(path.join(__dirname,"home.html"));
 // })
 // nodejs server
+// console.log(process.env.PORT);
+const port=process.env.PORT||3000;
 
-server.listen(4000, function (req, res) {
+server.listen(port, function (req, res) {
     console.log("Server has started at port 4000");
 });
