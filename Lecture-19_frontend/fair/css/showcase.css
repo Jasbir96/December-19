@@ -1,0 +1,26 @@
+/* basic resets */
+/* universal selector */
+* {
+margin:0;
+padding: 0;
+/* explain ??*/
+box-sizing: border-box;
+}
+
+
+/* to put text on image */
+.showcase{
+     background-image: 
+     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)), url("../img/showcaseBack.jpg");
+
+    height: 100vh;
+
+    background-size: 100vw;
+    background-position: center;
+    
+}
+
+.main-heading{
+    color: white;
+}
+
