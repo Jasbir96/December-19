@@ -11,6 +11,7 @@ const io = require('socket.io')(server);
 app.use(express.static("public"));
 
 io.on('connection', function (socket) {
+    console.log(socket.id);
     socket.on("color", function (color) {
         console.log(color);
         socket.broadcast.emit('oncolorChange', color);
@@ -28,6 +29,6 @@ io.on('connection', function (socket) {
 // })
 // nodejs server
 
-server.listen(3000, function (req, res) {
-    console.log("Server has started at port 3000");
+server.listen(4000, function (req, res) {
+    console.log("Server has started at port 4000");
 });
