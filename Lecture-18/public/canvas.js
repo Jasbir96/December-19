@@ -1,6 +1,5 @@
 let isMouseDown = false;
 let undoStack = [];
-
 let redoStack=[];
 board.addEventListener("mousedown", function (e) {
     // starting point

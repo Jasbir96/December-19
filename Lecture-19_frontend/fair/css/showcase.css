@@ -1,26 +1,91 @@
 /* basic resets */
 /* universal selector */
 * {
-margin:0;
-padding: 0;
-/* explain ??*/
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* explain ??*/
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+html {
+  font-size: 1rem;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
 }
 
+/* Header */
 
 /* to put text on image */
-.showcase{
-     background-image: 
-     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)), url("../img/showcaseBack.jpg");
+.showcase {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+    url("../img/showcaseBack.jpg");
 
-    height: 100vh;
+  height: 100vh;
 
-    background-size: 100vw;
-    background-position: center;
-    
+  background-size: 100vw;
+  background-position: center;
+  text-transform: uppercase;
 }
 
-.main-heading{
+.text-box {
+  position: absolute;
+  top: 34vh;
+  left: 17vw;
+  font-size: 200%;
+  /* width: 42vw; */
+}
+
+.main-heading {
+  color: white;
+  /*  */
+  line-height: 145%;
+}
+
+.span-styler {
+  color: #e74c3c;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  color: white;
+}
+.nav-li {
+  margin-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  font-size: 145%;
+}
+.nav-li:hover {
+  border-bottom: 0.1rem solid #e74c3c;
+}
+
+/* .btn */
+
+.btn {
     color: white;
+    font-size: 47%;
+    padding: 1.2rem;
+    background-color: #e74c3c;
+    border-radius: 1.7rem;
+    border:0.2rem solid #e74c3c;
 }
 
+
+
+.btn-empty {
+    background-color: transparent;
+}
+
+
+.btn-empty:hover{
+    background-color: #e74c3c;
+    transform: scale(1.1);
+}
