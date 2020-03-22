@@ -74,7 +74,23 @@ font-weight:300;
 .span-styler {
   color: #e74c3c;
 }
+.steps{
+  height: 100vh;
+}
 
+.sticky{
+  
+  position: fixed;
+    height: 5rem;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 1rem;
+    /* layers=> z inc nearer to user  */
+    z-index: 1;
+}
+.sticky .nav-links{
+  color:grey;
+}
 .nav-ul {
   display: flex;
   justify-content: flex-end;
@@ -133,19 +149,6 @@ transform: scale(1.2);
     font-size: 280%;
     margin-bottom: 2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* feature section */
 .container-parent{
   display: flex;

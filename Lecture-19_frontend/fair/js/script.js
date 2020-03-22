@@ -1,8 +1,13 @@
 const spanDetector = document.getElementById("span-detector");
+const nav = document.getElementById("nav");
+const showCase = document.querySelector(".showcase");
+const featureSection = document.querySelector(".features");
+
 // page load
 window.addEventListener("load", function() {
   const clients = ["EveryOne", "Fitness Freaks", "Vegans", "Developers"];
   typeWriter(spanDetector, clients);
+  window.addEventListener("scroll", myfunction);
 });
 
 function typeWriter(spanDetector, clients) {
@@ -31,9 +36,9 @@ function typeWriter(spanDetector, clients) {
     if (isDeleting == true && txt == "") {
       wordIndex++;
       isDeleting = false;
-    }  else if(isDeleting==false&&txt.length==word.length){
+    } else if (isDeleting == false && txt.length == word.length) {
       wait = largerPause;
-      isDeleting=true;
+      isDeleting = true;
     }
 
     setTimeout(function() {
@@ -41,4 +46,12 @@ function typeWriter(spanDetector, clients) {
     }, wait);
   }
   typer();
+}
+function myfunction() {
+  if (window.pageYOffset > featureSection.offsetTop) {
+    // console.log("Add Sticky");
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
 }
