@@ -74,7 +74,6 @@ h3 {
   color: #e74c3c;
 }
 
-
 .sticky {
   position: fixed;
   height: 5rem;
@@ -165,39 +164,37 @@ h3 {
   transform: scale(1.1);
 }
 
-
-.flex-container{
+.flex-container {
   display: flex;
 }
 .steps {
   background-color: gainsboro;
 }
-.image-container{
-  width:42vw;
+.image-container {
+  width: 42vw;
   text-align: center;
 }
-.app-img{
-  width:15vw;
+.app-img {
+  width: 15vw;
 }
-.steps-container{
-  margin-top:2rem;
+.steps-container {
+  margin-top: 2rem;
 }
-.steps-flex-container{
+.steps-flex-container {
   height: 28%;
-
 }
-.steps-flex-container p{
+.steps-flex-container p {
   /* vertical-align: center; */
- padding-top: 0.7rem;
+  padding-top: 0.7rem;
 }
-.steps-flex-container div{
+.steps-flex-container div {
   float: left;
-      padding: 0.8rem 1.2rem;
-      border-radius: 50%;
-  
-      border: 1px solid red;
-      font-size: 220%;
-      margin-right:1.5rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50%;
+
+  border: 1px solid red;
+  font-size: 220%;
+  margin-right: 1.5rem;
 }
 
 .clearfix::after {
@@ -206,12 +203,37 @@ h3 {
   display: table;
 }
 
+/* signup */
+.signup {
+  background-color: black;
+}
 
+.bg-video {
+  width: 30vw;
+}
 
+.signup-container {
+  display: flex;
+}
 
+.signup-form {
+  width: 40vw;
+  /* text-align: center; */
+  margin-left: 8rem;
+}
 
+input,
+select,
+textarea {
+  width: 80%;
+  display: block;
+}
 
+input[type="text"],
+select {
+  padding: 1rem;
+}
 
-
-
-
+button[type="submit"] {
+  display: inline-block;
+}
