@@ -32,7 +32,7 @@ h2::after {
   height: 0.2rem;
   background-color: #e74c3c;
   width: 10rem;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
 }
 
 h3 {
@@ -51,7 +51,7 @@ h3 {
   height: 100vh;
   background-attachment: fixed;
 
-  background-size: 100vw;
+  background-size: cover;
   background-position: center;
   text-transform: uppercase;
 }
@@ -146,11 +146,14 @@ h3 {
 .container-parent {
   display: flex;
   text-align: center;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
+  /* content => next  */
+  flex-wrap: wrap;
 }
 .container {
-  /* transform: scale(0.9); */
+  width: 28%;
   margin-right: 1.5rem;
+  margin-bottom: 1rem;
   padding: 1.5rem 2rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
   transition: transform 0.4s;
@@ -166,18 +169,23 @@ h3 {
 
 .flex-container {
   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .steps {
   background-color: gainsboro;
 }
+/*  */
 .image-container {
-  width: 42vw;
+  width: 42%;
   text-align: center;
 }
 .app-img {
   width: 15vw;
 }
+/*  */
 .steps-container {
+  width: 50%;
   margin-top: 2rem;
 }
 .steps-flex-container {
@@ -227,6 +235,8 @@ select,
 textarea {
   width: 80%;
   display: block;
+  margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 input[type="text"],
@@ -236,4 +246,40 @@ select {
 
 button[type="submit"] {
   display: inline-block;
+}
+label {
+  margin-top: 1rem;
+}
+.plan-parent {
+  display: flex;
+  justify-content: space-evenly;
+  height: 80vh;
+}
+.plan-child {
+  width: 28%;
+  box-shadow: 0 1rem 3rem rgba(5, 5, 5, 0.295) !important;
+  height: 85%;
+  background-color: blanchedalmond;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 2px solid goldenrod;
+}
+.plan-header,
+.plan-features {
+  height: 30%;
+  border-bottom: 0.1rem solid grey;
+}
+
+.plan-features {
+  height: 55%;
+}
+.plan-btn__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a.signup-btn {
+  font-size: 100%;
+  position: relative;
+  top: 2.5rem;
 }
