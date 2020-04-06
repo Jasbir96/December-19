@@ -1,5 +1,6 @@
 const userRouter = require("express").Router();
-const { signup } = require("../controller/authController");
+const { signup, login, protectRoute } = require("../controller/authController");
+const { getMe } = require("../controller/userController");
 // ///////////////////////////JSON
 // const {
 //   getAllUser,
@@ -20,5 +21,7 @@ const { signup } = require("../controller/authController");
 //   .delete(deleteUser);
 // /////////////////////DB//////////////////////
 userRouter.post("/signup", signup);
+userRouter.post("/login", login);
 
+userRouter.post("/getMe", protectRoute, getUser);
 module.exports = userRouter;

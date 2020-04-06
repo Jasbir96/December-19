@@ -7,22 +7,22 @@ module.exports.createUser = function createUser(req, res) {
   fs.writeFileSync("./data/users.json", JSON.stringify(users));
   res.status(201).json({
     status: "user created",
-    data: user
+    data: user,
   });
 };
 
 module.exports.getAllUser = function getAllUser(req, res) {
   res.status(200).json({
     status: "all users recieved",
-    data: users
+    data: users,
   });
 };
 
 module.exports.getUser = function getUser(req, res) {
-  const { id } = req.params;
+  const { id } = req.params || req.body;
   res.json({
     status: "successfull",
-    data: users[id - 1]
+    data: users[id - 1],
   });
 };
 module.exports.updateUser = function updateUser(req, res) {
@@ -40,7 +40,7 @@ module.exports.updateUser = function updateUser(req, res) {
 
   res.status(200).json({
     status: "update request recieved",
-    data: originaluser
+    data: originaluser,
   });
 };
 module.exports.deleteUser = function deleteUser(req, res) {
@@ -49,6 +49,6 @@ module.exports.deleteUser = function deleteUser(req, res) {
   fs.writeFileSync("./data/plans.json", JSON.stringify(users));
   res.status(200).json({
     status: "user Deleted",
-    data: user
+    data: user,
   });
 };
