@@ -8,7 +8,7 @@ mongoose
   )
   .then(function (db) {
     // console.log(db);
-    console.log("PlanDB connected");
+    console.log("userDB connected");
   })
   .catch(function (err) {
     console.log(err);
@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 7,
     required: true,
+    select: false,
   },
   confirmPassword: {
     type: String,
@@ -36,6 +37,7 @@ const userSchema = new mongoose.Schema({
     validate: function () {
       return this.password == this.confirmPassword;
     },
+    required: true,
   },
   role: {
     type: String,
@@ -44,7 +46,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// hooks 
+// hooks
 userSchema.pre("save", function () {
   // db => confirmpassword
   this.confirmPassword = undefined;
