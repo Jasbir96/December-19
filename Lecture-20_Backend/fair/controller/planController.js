@@ -69,29 +69,35 @@ module.exports.getPlan = async function getPlan(req, res) {
 // updatePlan
 module.exports.updatePlan = async function updatePlan(req, res) {
   //  identifier => plan
-  const id = req.params.id;
   // const originalPlan = plans[id - 1];
   //fields to be updated in ur plan
   // local
-  const toupdateData = req.body;
-  // const keys = [];
-  // for (let key in toupdateData) {
-  //   keys.push(key);
-  // }
-  // for (let i = 0; i < keys.length; i++) {
-  //   originalPlan[keys[i]] = toupdateData[keys[i]];
-  // }
-  // fs.writeFileSync("./data/plans.json", JSON.stringify(plans));
-  // db********************************************************
-  // update DB update =>old plan return
   try {
-    // validator => update ,validator
-    const updatedPlan = await planModel.findByIdAndUpdate(id,toupdateData, { new: true });
+    const id = req.params.id;
+    const toupdateData = req.body;
+    // mdb=> express server
+    const originalPlan = await planModel.findById(id);
+    const keys = [];
+    for (let key in toupdateData) {
+      keys.push(key);
+    }
+
+    // express server => modify
+    for (let i = 0; i < keys.length; i++) {
+      originalPlan[keys[i]] = toupdateData[keys[i]];
+    }
+    // express server=> modified=> mdb
+   const updatedPlan= await originalPlan.save();
+
+    // fs.writeFileSync("./data/plans.json", JSON.stringify(plans));
+    // db********************************************************
+    // update DB update =>old plan return
     res.status(200).json({
       status: "update request recieved",
       plan: updatedPlan,
     });
   } catch (err) {
+    console.log(err);
     res.status(501).json({
       status: "Plan could not be updated",
       err,
@@ -108,3 +114,4 @@ module.exports.deletePlan = function deletePlan(req, res) {
     plan: plan,
   });
 };
+

@@ -10,12 +10,14 @@ module.exports.createUser = function createUser(req, res) {
     data: user
   });
 };
+
 module.exports.getAllUser = function getAllUser(req, res) {
   res.status(200).json({
     status: "all users recieved",
     data: users
   });
 };
+
 module.exports.getUser = function getUser(req, res) {
   const { id } = req.params;
   res.json({

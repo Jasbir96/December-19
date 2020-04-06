@@ -8,7 +8,6 @@
 //   }
 //   next();
 // };
-
 // module.exports.checkbody = function checkbody(req, res, next) {
 //   if (Object.keys(req.body).length == 0) {
 //     return res.status(404).json({
