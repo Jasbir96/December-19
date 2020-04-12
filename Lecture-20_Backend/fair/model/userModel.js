@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const cryto = require("crypto");
 // mongoose => promise based library
 // connection
 const secrets = require("../config/secrets");
@@ -43,9 +44,12 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ["admin", "user", "owner", "delivery Boy"],
+    enum: ["admin", "user", "resturantowner", "delivery boy"],
     default: "user",
   },
+
+  resetToken: String,
+  resetTokenExpires: Date
 });
 
 // hooks
@@ -53,6 +57,26 @@ userSchema.pre("save", function () {
   // db => confirmpassword
   this.confirmPassword = undefined;
 });
+
+// methdos => document=> createResetToken
+userSchema.methods.createResetToken = function () {
+  // token generate
+  const resetToken = cryto.randomBytes(32).toString("hex");
+
+  this.resetToken = resetToken;
+
+  this.resetTokenExpires = Date.now() + 1000 * 10 * 60;
+
+  return resetToken;
+
+}
+userSchema.methods.resetPasswordhandler = function (password, confirmPassword) {
+  this.password = password;
+  this.confirmPassword = confirmPassword;
+  this.resetToken = undefined;
+  this.resetTokenExpires = undefined;
+
+}
 const userModel = mongoose.model("NewUserModel", userSchema);
 
 module.exports = userModel;

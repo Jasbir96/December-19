@@ -7,7 +7,7 @@ module.exports.createPlan = function createPlan(req, res) {
   plans.push(plan);
   fs.writeFileSync("./data/plans.json", JSON.stringify(plans));
   res.status(201).json({
-    status: "plan created",
+    status: "plan createdpla",
     data: plan
   });
 };

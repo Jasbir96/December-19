@@ -1,6 +1,6 @@
 const userRouter = require("express").Router();
-const { signup, login, protectRoute } = require("../controller/authController");
-const { getMe } = require("../controller/userController");
+const { signup, login, protectRoute, isAuthorized,forgetPassword,resetPassword } = require("../controller/authController");
+const { getUser,getAllUser,updateUser,deleteUser } = require("../controller/userController");
 // ///////////////////////////JSON
 // const {
 //   getAllUser,
@@ -22,6 +22,19 @@ const { getMe } = require("../controller/userController");
 // /////////////////////DB//////////////////////
 userRouter.post("/signup", signup);
 userRouter.post("/login", login);
+userRouter.patch("/forgetPassword",forgetPassword)
+userRouter.patch("/resetPassword/:token",resetPassword)
+// profile page 
 
-userRouter.post("/getMe", protectRoute, getUser);
+
+userRouter.use(protectRoute)
+userRouter.get("/userProfile" , getUser);
+// isAuthorized
+// admin
+userRouter.use(isAuthorized(["admin"]));
+userRouter.route("").get(getAllUser);
+userRouter
+  .route("/:id")
+  .patch(updateUser)
+  .delete(deleteUser);
 module.exports = userRouter;

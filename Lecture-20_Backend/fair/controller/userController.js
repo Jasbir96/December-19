@@ -1,4 +1,4 @@
-const plans = require("../model/plans.json");
+const userModel = require("../model/userModel");
 module.exports.createUser = function createUser(req, res) {
   console.log("Actual function ran");
   const user = req.body;
@@ -11,18 +11,25 @@ module.exports.createUser = function createUser(req, res) {
   });
 };
 
-module.exports.getAllUser = function getAllUser(req, res) {
+module.exports.getAllUser = async function getAllUser(req, res) {
+  // findone => 
+  // find => city 
+  // find=> model => document
+const users= await userModel.find().select("+password");
   res.status(200).json({
     status: "all users recieved",
     data: users,
   });
 };
 
-module.exports.getUser = function getUser(req, res) {
-  const { id } = req.params || req.body;
+module.exports.getUser = async function getUser(req, res) {
+  const id = req.params.id || req.id;
+  // console.log
+  // console.log(id)
+  const user = await userModel.findById(id)
   res.json({
     status: "successfull",
-    data: users[id - 1],
+    user
   });
 };
 module.exports.updateUser = function updateUser(req, res) {
