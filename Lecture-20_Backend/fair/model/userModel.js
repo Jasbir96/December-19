@@ -70,6 +70,7 @@ userSchema.methods.createResetToken = function () {
   return resetToken;
 
 }
+
 userSchema.methods.resetPasswordhandler = function (password, confirmPassword) {
   this.password = password;
   this.confirmPassword = confirmPassword;

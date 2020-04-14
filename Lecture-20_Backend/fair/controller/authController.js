@@ -5,6 +5,7 @@ const secrets = require("../config/secrets");
 async function signup(req, res) {
   try {
     const newUser = await userModel.create(req.body);
+    //  welcome mail
     res.status(201).json({
       status: "user Signedup",
       newUser,
@@ -107,6 +108,7 @@ async function forgetPassword(req, res) {
 // confirm password
       await user.save({ validateBeforeSave: false });
       resetPath = "http://localhost:3000/api/users/resetPassword/" + resetToken;
+      // send Mail
       res.status(200).json({
         resetPath,
         resetToken,
@@ -138,6 +140,7 @@ async function resetPassword(req, res) {
     console.log(password+" "+confirmPassword);
     if (user) {
       user.resetPasswordhandler(password, confirmPassword)
+      // db save 
       await user.save();
       res.status(200).json({
         status: "Password reset "
