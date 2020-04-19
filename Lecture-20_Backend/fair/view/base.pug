@@ -8,8 +8,9 @@ html
     link(rel="stylesheet", href="css/style.css")
     title #{title}
   body
-    block header
-      include nav
+    include nav
     block content
       p content will come here
     include footer
+    script(src="https://unpkg.com/axios/dist/axios.min.js" crossorigin="true")
+    script(src="js/frontend.js")

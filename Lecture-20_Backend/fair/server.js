@@ -18,7 +18,7 @@ app.use(express.static("public"))
 app.set("view engine", "pug");
 // view => directory
 app.set("views", path.join(__dirname, "view"));
-
+// /plans
 app.use("/api/plans", planRouter);
 app.use("/api/users", userRouter);
 app.use("/", viewRouter);

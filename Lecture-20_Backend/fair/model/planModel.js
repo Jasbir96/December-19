@@ -46,7 +46,6 @@ const planSchema = new mongoose.Schema({
     },
   },
 });
-
 const newPlanModel = mongoose.model("newPlanModel", planSchema);
 
 module.exports = newPlanModel;
