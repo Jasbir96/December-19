@@ -2,6 +2,7 @@
 const userModel = require("../model/userModel");
 const jwt = require("jsonwebtoken");
 const secrets = require("../config/secrets");
+const emailHelper = require("../utility/sendEmail");
 async function signup(req, res) {
   try {
     const newUser = await userModel.create(req.body);
@@ -126,7 +127,7 @@ async function isUserLoggedIn(req, res, next) {
     }
   } catch (err) {
     console.log(err);
-   next();
+    next();
   }
 }
 function isAuthorized(roles) {
@@ -151,6 +152,14 @@ async function forgetPassword(req, res) {
       await user.save({ validateBeforeSave: false });
       resetPath = "http://localhost:3000/api/users/resetPassword/" + resetToken;
       // send Mail
+
+      let html, subject;
+      let options = {
+        to: user.email,
+        html,
+        subject: subject
+      }
+      await emailHelper(options);
       res.status(200).json({
         resetPath,
         resetToken,

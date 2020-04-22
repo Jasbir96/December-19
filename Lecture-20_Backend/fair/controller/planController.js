@@ -1,6 +1,6 @@
 // const plans=require("../model/plans.json");
 const planModel = require("../model/planModel");
-
+// 1. 
 module.exports.createPlan = async function createPlan(req, res) {
   //  json
   // console.log("Actual function ran");
@@ -65,7 +65,6 @@ module.exports.getPlan = async function getPlan(req, res) {
     });
   }
 };
-
 // updatePlan
 module.exports.updatePlan = async function updatePlan(req, res) {
   //  identifier => plan
