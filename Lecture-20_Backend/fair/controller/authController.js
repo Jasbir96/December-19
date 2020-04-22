@@ -56,7 +56,7 @@ async function login(req, res) {
 }
 async function logout(req, res) {
   // token => loggedIN
-  res.cookie("jwt", "dsfbzdmnvcdshc", { httpOnly: true });
+  res.cookie("jwt", "wrongtoken", { httpOnly: true });
   res.status(200).json({
     status: "user LoggedOut"
   })
@@ -126,7 +126,7 @@ async function isUserLoggedIn(req, res, next) {
       next();
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     next();
   }
 }

@@ -21,6 +21,7 @@ async function loginHelper(email, password) {
 async function logoutHelper() {
   const backendResponse = await axios.get("/logout");
   if (backendResponse.data.status == "user LoggedOut") {
+    // wrong token 
     location.reload();
   } else {
     alert("logout failed");
