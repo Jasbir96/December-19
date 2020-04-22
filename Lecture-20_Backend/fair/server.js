@@ -2,9 +2,11 @@ const express = require("express");
 // server create
 const path = require("path");
 const app = express();
+const cookieParser=require("cookie-parser");
 const userRouter = require("./router/userRouter");
 const planRouter = require("./router/planRouter");
 const viewRouter = require("./router/viewRouter");
+
 // 1.middleware
 // app.use(function f1(req, res, next) {
 //   console.log("middleware that ran before express.json in f1" + req.body);
@@ -12,6 +14,7 @@ const viewRouter = require("./router/viewRouter");
 // });
 // ``````````````````````````````````````Middlewares``````````````````````````````````````
 app.use(express.json());
+app.use(cookieParser());
 // 1. static folder
 app.use(express.static("public"))
 // express => rendering /templating engine

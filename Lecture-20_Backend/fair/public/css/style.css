@@ -76,10 +76,10 @@ header,
   display: inline-block;
   color: white;
   margin-right: 1rem;
-  padding: 1rem;
+  padding:0.8rem 1.6rem;
   background-color: #f63854;
   border-radius: 4rem;
-  border: 0.2rem solid #f63854;
+  border: 0.1rem solid #f63854;
   transition: transform 0.3s, color 0.3s, background-color 0.3s;
 }
 
@@ -105,11 +105,17 @@ header,
 /* Features Section */
 .container-parent {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  /* width:100%; */
 }
 .container {
+  margin-bottom: 3rem;
   padding: 2rem 1.5rem;
   margin-right: 1.5rem;
   box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+  width:30%;
   transition: transform 0.4s;
 }
 .container:hover {
@@ -144,7 +150,7 @@ h3 {
   line-height: 145%;
 }
 .How-to {
-  background-color: rgb(230, 226, 226);
+ background-color:  rgb(244, 244, 244);
 }
 .howto-container {
   display: flex;
@@ -252,8 +258,8 @@ cite {
 }
 .signup-parent {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .signup-child {
@@ -324,7 +330,6 @@ form {
 }
 input[type="text"],
 input[type="email"],
-input[type="password"],
 select,
 textarea {
   border: 2px solid grey;
@@ -394,12 +399,4 @@ footer {
   text-align: center;
   margin-top: 2%;
   font-size: 140%;
-}
-
-.form-container {
-  background: lightgrey;
-  height: 70vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
 }

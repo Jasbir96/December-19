@@ -3,17 +3,18 @@ async function sendEmail() {
   try {
     // email configuration=> transport
     const transport = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
+      service: "gmail",
+      host: "smtp.gmail.com",
+      secure: true,
       auth: {
-        user: "5bc7f6bb8f9a36",
-        pass: "2a0d2c25c2ad0a"
+        user: "pepcodingdev@gmail.com",
+        pass: config.APP_PASSWORD
       }
     })
     // email options
     const emailOptions = {
-      from: "jasbir.singh@pepcoding.com",
-      to: "abc@gmail.com",
+      from: "everyone@gmail.com",
+      to: "mr.jasbirsingh96@gmail.com",
       subject: "My first Email",
       text: "I am testing email",
       html: "<h1>I am testing email</h1>"
@@ -25,10 +26,10 @@ async function sendEmail() {
   }
 }
 
-sendEmail().then(function(){
+sendEmail().then(function () {
   console.log("email has been send successfully")
-  
-}).catch(function(err){
+
+}).catch(function (err) {
   console.log(err)
 })
 // signup => welcome email
