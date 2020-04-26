@@ -1,4 +1,4 @@
-const plans=require("../model/plans.json");
+const plans=require("../../model/plans.json");
 
 module.exports.createPlan = function createPlan(req, res) {
   console.log("Actual function ran");
