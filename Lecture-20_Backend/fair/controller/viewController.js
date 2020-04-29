@@ -24,9 +24,9 @@ async function getPlansPage(req, res) {
   })
 }
 function getLoginPage(req, res) {
-  let name = req.userName;
+  // let name = req.userName;
   res.render("login.pug", {
-    title: "Login", name
+    title: "Login"
   })
 }
 async function getProfilePage(req, res) {

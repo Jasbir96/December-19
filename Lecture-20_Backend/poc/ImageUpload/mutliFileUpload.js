@@ -17,7 +17,6 @@ const filter = function (req, file, cb) {
   }
 }
 //storageFilter => file=> jpg,destination
-
 const multerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public/raw")
@@ -28,7 +27,6 @@ const multerStorage = multer.diskStorage({
   }
 })
 // ram
-
 const upload = multer({
   storage: multerStorage,
   fileFilter: filter

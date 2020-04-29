@@ -34,8 +34,6 @@ async function login(req, res) {
           res.cookie("jwt", token, { httpOnly: true });
           return res.status(200).json({
             status: "userLogged In",
-            user,
-            token,
           });
         } else {
           throw new Error("email or password didn't match ");
@@ -89,8 +87,11 @@ async function protectRoute(req, res, next) {
     }
   } catch (err) {
     // console.log(err);
+    // client postman => json reply
+    // client browser => authorized page
     let clientType = req.get("User-Agent");
-    if (clientType.includes("Mozilla") == true) {
+    // console.log(clientType);
+        if (clientType.includes("Mozilla") == true) {
       //  backend express 
       return res.redirect("/login");
     }

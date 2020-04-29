@@ -1,4 +1,6 @@
 const userModel = require("../model/userModel");
+const sharp = require("sharp");
+const fs = require("fs");
 module.exports.createUser = function createUser(req, res) {
   console.log("Actual function ran");
   const user = req.body;
@@ -15,7 +17,7 @@ module.exports.getAllUser = async function getAllUser(req, res) {
   // findone => 
   // find => city 
   // find=> model => document
-const users= await userModel.find().select("+password");
+  const users = await userModel.find().select("+password");
   res.status(200).json({
     status: "all users recieved",
     data: users,
@@ -32,24 +34,7 @@ module.exports.getUser = async function getUser(req, res) {
     user
   });
 };
-module.exports.updateUser = function updateUser(req, res) {
-  const id = req.params.id;
-  const originaluser = users[id - 1];
-  const toupdateData = req.body;
-  const keys = [];
-  for (let key in toupdateData) {
-    keys.push(key);
-  }
-  for (let i = 0; i < keys.length; i++) {
-    originaluser[keys[i]] = toupdateData[keys[i]];
-  }
-  fs.writeFileSync("./data/users.json", JSON.stringify(users));
 
-  res.status(200).json({
-    status: "update request recieved",
-    data: originaluser,
-  });
-};
 module.exports.deleteUser = function deleteUser(req, res) {
   const { id } = req.params;
   const user = users.splice(id - 1, 1);
@@ -59,3 +44,35 @@ module.exports.deleteUser = function deleteUser(req, res) {
     data: user,
   });
 };
+module.exports.updateProfileImage = async function updateProfileImage(req, res) {
+  // update anything
+  //  form data 
+  try {
+    // console.log(req.file);
+    let serverPath = `public/img/users/user-${Date.now()}.jpeg`
+    // process
+    console.log("I was here");
+    await sharp(req.file.path)
+      .resize(500, 500)
+      .toFormat("jpeg")
+      .jpeg({ quality: 90 })
+      .toFile(serverPath);
+
+
+    fs.unlinkSync(req.file.path);
+    serverPath = serverPath.split("/").slice(1).join("/");
+    
+    let user = await userModel.findById(req.id);
+    
+    user.profileImage = serverPath;
+
+    await user.save({ validateBeforeSave: false });
+    // console.log("I was here");
+    res.status(200).json({
+      status: "image uploaded"
+    })
+  } catch (err) {
+    console.log(err);
+    console.log(err.message);
+  }
+}

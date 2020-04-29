@@ -8,7 +8,6 @@ const app = express();
 //   console.log("middleware that ran before express.json in f1" + req.body);
 //   next();
 // });
-
 // ``````````````````````````````````````Middlewares``````````````````````````````````````
 // app.use(express.json());
 // app.use("/api/plans", planRouter);
