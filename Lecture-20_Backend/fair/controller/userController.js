@@ -57,9 +57,6 @@ module.exports.updateProfileImage = async function updateProfileImage(req, res) 
       .toFormat("jpeg")
       .jpeg({ quality: 90 })
       .toFile(serverPath);
-
-
-    fs.unlinkSync(req.file.path);
     serverPath = serverPath.split("/").slice(1).join("/");
     
     let user = await userModel.findById(req.id);
