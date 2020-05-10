@@ -52,13 +52,13 @@ async function login(req, res) {
     });
   }
 }
+
 async function logout(req, res) {
   // token => loggedIN
   res.cookie("jwt", "wrongtoken", { httpOnly: true });
   res.status(200).json({
     status: "user LoggedOut"
   })
-
 }
 // It verifies
 async function protectRoute(req, res, next) {

@@ -1,4 +1,5 @@
 const QueryHelper = require("../utility/utilityfn");
+const ErrorExtender = require("../utility/ErrorExtender");
 // 1.
 module.exports.createElement = function (ElementModel) {
   return async function create(req, res) {
@@ -11,10 +12,8 @@ module.exports.createElement = function (ElementModel) {
         data: createdElement,
       });
     } catch (err) {
-      res.status(501).json({
-        err,
-        status: "Internal server error",
-      });
+      next(new Error("Element could not be updated"));
+      return;
     }
   };
 }
@@ -32,24 +31,29 @@ module.exports.getAllElement = function (ElementModel) {
         data: finalans,
       });
     } catch (err) {
+      next(new Error("Element could not be updated"));
+      return;
     }
   };
 }
 module.exports.getElement = function (ElementModel) {
-  return async function get(req, res) {
+  return async function get(req, res, next) {
     try {
       // recieve id through params
       const { id } = req.params;
       const Element = await ElementModel.findById(id);
+      // null
+      // element not found 
+      if (!Element) {
+        return next(new ErrorExtender("Element not found", 404));
+      }
       res.json({
         status: "successfull",
         data: Element,
       });
     } catch (err) {
-      res.status(404).json({
-        status: "Element Not found",
-        err,
-      });
+      next(new Error("Element could not be updated"));
+      return;
     }
   };
 
@@ -65,6 +69,9 @@ module.exports.updateElement = function (ElementModel) {
       const toupdateData = req.body;
       // mdb=> express server
       const originalElement = await ElementModel.findById(id);
+      if (!originalElement) {
+        return next(new ErrorExtender("Element not found", 404));
+      }
       const keys = [];
       for (let key in toupdateData) {
         keys.push(key);
@@ -84,10 +91,8 @@ module.exports.updateElement = function (ElementModel) {
       });
     } catch (err) {
       console.log(err);
-      res.status(501).json({
-        status: "Element could not be updated",
-        err,
-      });
+      next(new Error("Element could not be updated"));
+      return;
     }
   };
 }
@@ -97,15 +102,15 @@ module.exports.deleteElement = function (ElementModel) {
       const id = req.params.id;
 
       const Element = await ElementModel.finByIdAndDelete(id);
+      if (!Element) {
+        return next(new ErrorExtender("Element not found", 404));
+      }
       res.status(200).json({
         status: "Element Deleted",
         Element: Element,
       });
     } catch (err) {
-      res.status(404).json({
-        status: "Element could not be Deleted",
-        err: err.message,
-      });
+      return (new Error("Element could not be deleted"));
     }
 
   }
