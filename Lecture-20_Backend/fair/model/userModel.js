@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const cryto = require("crypto");
 // mongoose => promise based library
 // connection
-const secrets = require("../config/secrets");
+const DB_LINK = process.env.DB_LINK||require("../config/secrets").DB_LINK;
 mongoose
-  .connect(secrets.DB_LINK, {
+  .connect(DB_LINK, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

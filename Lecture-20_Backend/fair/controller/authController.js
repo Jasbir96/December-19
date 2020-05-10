@@ -1,7 +1,7 @@
+const JWT_SECRET = process.env.JWT_SECRET||require("../config/secrets").JWT_SECRET;
 // db 
 const userModel = require("../model/userModel");
 const jwt = require("jsonwebtoken");
-const secrets = require("../config/secrets");
 const emailHelper = require("../utility/sendEmail");
 async function signup(req, res) {
   try {
@@ -29,7 +29,7 @@ async function login(req, res) {
         // console.log(user);
         if (user.password == req.body.password) {
           const id = user["_id"];
-          const token = jwt.sign({ id }, secrets.JWT_SECRET);
+          const token = jwt.sign({ id }, JWT_SECRET);
           // header
           res.cookie("jwt", token, { httpOnly: true });
           return res.status(200).json({
@@ -71,7 +71,7 @@ async function protectRoute(req, res, next) {
     }
     // console.log(token)
     if (token) {
-      const payload = jwt.verify(token, secrets.JWT_SECRET);
+      const payload = jwt.verify(token, JWT_SECRET);
       if (payload) {
         // user id 
         // console.log(payload)
@@ -111,7 +111,7 @@ async function isUserLoggedIn(req, res, next) {
     }
     // console.log(token)
     if (token) {
-      const payload = jwt.verify(token, secrets.JWT_SECRET);
+      const payload = jwt.verify(token, JWT_SECRET);
       if (payload) {
         // user id 
         // console.log(payload)

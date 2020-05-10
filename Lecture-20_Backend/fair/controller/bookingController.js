@@ -1,4 +1,5 @@
-const SK = require("../config/secrets").SK;
+// process.env.SK=> mention variable
+let SK=process.env.SK||require("../config/secrets").SK;
 const stripe = require("stripe")(SK);
 const planModel = require("../model/planModel");
 const userModel = require("../model/userModel");
