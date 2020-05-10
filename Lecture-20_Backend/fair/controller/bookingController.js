@@ -1,5 +1,5 @@
-
-const stripe = require("stripe")('sk_test_TBvB4nbkS7d0bmofgLuPDvfQ00AkavxPYY');
+const SK = require("../config/secrets").SK;
+const stripe = require("stripe")(SK);
 const planModel = require("../model/planModel");
 const userModel = require("../model/userModel");
 async function createSession(req, res) {
@@ -27,8 +27,10 @@ async function createSession(req, res) {
           quantity: 1
         }
       ],
-      success_url: "http://localhost:3000/profile",
-      cancel_url: "http://localhost:3000"
+      // dev => http
+      // production => https 
+      success_url: `${req.protocol}://${req.get("host")}/profile`,
+      cancel_url: `${req.protocol}://${req.get("host")}/profile`
     })
     res.status(200).json({
       status: "success",

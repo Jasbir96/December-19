@@ -44,6 +44,8 @@ app.use("*", function (req, res, next) {
   next(err);
 })
 app.use("*", globalErrorHandler);
+//  server add env variable => hosting => single mutiple server host 
+// 1. 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server has started at port 3000");
